@@ -25,10 +25,10 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.webkit.DownloadListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -38,7 +38,6 @@ import android.widget.SimpleAdapter;
 import android.widget.SimpleAdapter.ViewBinder;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v4.content.ContextCompat;
 
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener;
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferObserver;
@@ -276,7 +275,7 @@ public class DownloadActivity extends ListActivity {
                             .getId());
                     // Sets a new transfer listener to the original observer.
                     // This will overwrite existing listener.
-                    observers.get(checkedIndex).setTransferListener(new DownloadListener());
+                    observers.get(checkedIndex).setTransferListener(new DownloadActivity.DownloadListener());
 
                      /**
                      * If resume returns null, it is likely because the transfer
