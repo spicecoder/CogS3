@@ -13,6 +13,15 @@ public class MyApplication extends Application {
         // Required initialization logic here!
 
         // Network service
-        getApplicationContext().startService(new Intent(getApplicationContext(), TransferService.class));
+        startService(new Intent(getApplicationContext(), TransferService.class));
+
+      /*  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+             startForegroundService(new Intent(getApplicationContext(), TransferService.class));
+        } else
+        { startService(new Intent( new Intent(getApplicationContext(), TransferService.class)));
+        }
+
+
+    }*/
     }
 }

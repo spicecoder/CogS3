@@ -1,12 +1,16 @@
 package com.amazonaws.demo.s3transferutility;
+
+import android.Manifest;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.v4.content.ContextCompat;
 
 public class Main {
 
@@ -128,5 +132,16 @@ public class Main {
     public static boolean isMediaDocument(Uri uri) {
         return "com.android.providers.media.documents".equals(uri
                 .getAuthority());
+    }
+
+    public static void  getPermission(Context tx) {
+
+        if(ContextCompat.checkSelfPermission(tx,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED)
+        {
+            // Permission is not granted
+        }
+
     }
 }

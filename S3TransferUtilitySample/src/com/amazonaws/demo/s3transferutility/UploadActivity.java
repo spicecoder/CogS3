@@ -449,7 +449,7 @@ public class UploadActivity extends ListActivity {
                 Uri uri = data.getData();
 
                 try {
-                    String path =  getUriRealPath(this,uri);
+                    String path =  Main.getPath(this,uri);
                             //getPath(uri);
                     beginUploadInBackground(path);
                 } catch (Exception e) {

@@ -88,6 +88,10 @@ public class Util {
      * @param context An Context instance.
      * @return A default S3 client.
      */
+    /*
+    /*
+    s3Client = new AmazonS3Client(credentials, Region.getRegion(Regions.US_WEST_2));
+     */
     public AmazonS3Client getS3Client(Context context) {
         if (sS3Client == null) {
             sS3Client = new AmazonS3Client(getCredProvider(context));
